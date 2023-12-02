@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.rounded-50 {
+  border-radius: 50%;
+}
+.text-transform-none {
+  text-transform: none !important;
+}
+.primary-link {
+  color: #1976d2;
+}

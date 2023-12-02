@@ -1,90 +1,18 @@
-import { React, useState } from 'react';
-// import { Tailwind } from '@tailwind/react';
-import { Navbar, Nav, InputGroup, FormControl, Button } from 'react-bootstrap';
+import { styled, alpha } from '@mui/material/styles';
 
-const NavigationBar = () => {
-  const [searchTerm, setSearchTerm] = useState('');
-
-  const handleSearchChange = (event) => {
-    setSearchTerm(event.target.value);
-  };
-
-  const handleSearchSubmit = (event) => {
-    event.preventDefault();
-    console.log('Search term:', searchTerm);
-  };
-
-  return (
-    <Tailwind>
-      <Navbar
- 
-bg="light"
- 
-expand="lg">
-
-        
-<Navbar.Brand
- 
-href="#">My App</Navbar.Brand>
-
-        
-<Navbar.Toggle
- 
-aria-controls="basic-navbar-nav" />
-
-        
-<Navbar.Collapse
- 
-id="basic-navbar-nav">
-
-          
-<Nav
- 
-className="mr-auto">
-
-            
-<Nav.Link
- 
-href="#">Home</Nav.Link>
-
-            
-<Nav.Link
- 
-href="#">About</Nav.Link>
-
-          
-</Nav>
-
-          <InputGroup className="w-full">
-            <FormControl
-              placeholder="Search"
-              aria-label="Search"
-              aria-describedby="basic-addon2"
-              value={searchTerm}
-              onChange={handleSearchChange}
-            />
-
-            
-<InputGroup.Append>
-
-              
-<Button
- 
-variant="outline-secondary"
- 
-onClick={handleSearchSubmit}>
-                Search
-              </Button>
-
-            
-</InputGroup.Append>
-
-          
-</InputGroup>
-        </Navbar.Collapse>
-      </Navbar>
-    </Tailwind>
-  );
-};
+const SearchBar = styled('div')(({ theme }) => ({
+  position: 'relative',
+  borderRadius: theme.shape.borderRadius,
+  backgroundColor: alpha(theme.palette.common.white, 0.15),
+  '&:hover': {
+    backgroundColor: alpha(theme.palette.common.white, 0.25),
+  },
+  marginLeft: 0,
+  width: '100%',
+  [theme.breakpoints.up('sm')]: {
+    marginLeft: theme.spacing(1),
+    width: 'auto',
+  },
+}));
 
 export default SearchBar;
